@@ -1,0 +1,28 @@
+graph LR
+  %% Node definitions
+  Claim[/"Claim"/]
+  Document[/"Document"/]
+  Snippet[/"Snippet"/]
+
+  %% Edges
+  Claim -- cites --> Document
+  Claim -- supports --> Snippet
+  Claim -- refutes --> Snippet
+
+  %% Subgraph showing properties
+  subgraph Props
+    Ctxt["Claim.text"]
+    Durl["Document.url"]
+    Dtext["Document.text"]
+    Ssum["Snippet.summary"]
+    Slbl["Snippet.label"]
+    Ssc["Snippet.score"]
+  end
+
+  %% Connect props to nodes
+  Ctxt --- Claim
+  Durl --- Document
+  Dtext --- Document
+  Ssum --- Snippet
+  Slbl --- Snippet
+  Ssc --- Snippet
